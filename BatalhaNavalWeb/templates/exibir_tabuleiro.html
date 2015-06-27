@@ -1,0 +1,27 @@
+<form action="atacar" method="POST">
+	{% csrf_token %}
+	<label>
+		x
+		<input type="text" name="posicaoX"/>
+	</label>
+	<label>
+		y
+		<input type="text" name="posicaoY"/>
+	</label>
+
+	<input type="submit" value="Atacar"/>
+</form>
+
+<table>
+	{% for linha in jogo.tabuleiro %}
+		<tr>
+			{% for coluna in linha %}
+				{% if coluna %}
+					<td>*</td>
+				{% else %}
+					<td>#</td>
+				{% endif %}
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>
